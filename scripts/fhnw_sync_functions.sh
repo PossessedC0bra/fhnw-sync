@@ -18,13 +18,13 @@ function disconnectVpn() {
 # ---- MOUNT / UNMOUNT FUNCTIONS ----
 
 function mountShare() {
-    mount.cifs -o user=$USERNAME,password=$PASSWORD $SHARE_PATH /mnt/fhnw
-    echo "$SHARE_PATH mounted ON /mnt/fhnw"
+    mount.cifs -o user=$USERNAME,password=$PASSWORD $SHARE_PATH /mnt
+    echo "$SHARE_PATH mounted"
 }
 
 function unmountShare() {
-    umount /mnt/fhnw
-    echo "/mnt/fhnw unmounted"
+    umount /mnt
+    echo "/mnt unmounted"
 }
 
 # ---- SYNC FOLDER FUNCTIONS ----
@@ -32,7 +32,7 @@ function unmountShare() {
 function syncFolders() {
     for folder in ${FOLDERS}
     do
-        fullPath=/mnt/fhnw/$folder
+        fullPath=/mnt/$folder
         cp -ru $fullPath /srv
         echo "$fullPath copied"
     done
