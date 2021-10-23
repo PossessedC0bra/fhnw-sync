@@ -11,7 +11,7 @@ on:
     types: [released]
 
 env:
-  IMAGE_NAME: ${{ github.actor }}/${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
