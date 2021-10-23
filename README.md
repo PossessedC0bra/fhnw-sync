@@ -2,13 +2,14 @@
 A docker container that automatically connects to a vpn client, mounts a given file share and copies the specified folders to the filesystem. This is done every day, hourly between 07:00 and 19:00.
 
 ## Important Note:
-This container has to be started in with [extended privileges](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). This is due to the container opening vpn tunnels which are only available in the privileged mode.
+This container has to be started with [extended privileges](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). This is due to the container opening vpn tunnels which are only available in the privileged mode.
 
 ## Configurations
 ### Volumes:
 - **/srv:** the location where all the data will be copied to. Don't forget to mount this folder to your host file system to persist the data!
 
 ### Environment Variables:
+- **CRON_SCHEDULE:** The cron schedule defining when the sync job is run. The job runs every hour per default
 - **USERNAME:** The username used for authentication with the VPN client and file share 
 - **PASSWORD:** The password used for authentication with the VPN client and file share
 - **VPN_URL:** The url used by the vpn client
