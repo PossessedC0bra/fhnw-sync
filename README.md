@@ -1,5 +1,5 @@
 # FHNW-Sync
-A docker container that runs a cron job, which automatically connects to a vpn client, mounts a given file share and copies the specified folders to its filesystem.
+A docker container that runs a cron job, which automatically connects to a vpn, mounts a given file server and copies the specified folders to its filesystem.
 
 ## Important Note:
 This container has to be started with [extended privileges](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). This is due to the container opening vpn tunnels which are only available in the privileged mode.
